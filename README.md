@@ -16,19 +16,38 @@ A modern REST API built with FastAPI and PostgreSQL for backend development.
 .
 ├── app/
 │   ├── __init__.py
-│   ├── main.py          # FastAPI application instance
-│   ├── models.py        # SQLAlchemy database models
-│   ├── database.py      # Database connection and session management
-│   ├── config.py        # Application configuration
+│   ├── main.py              # FastAPI application instance
+│   ├── models.py            # SQLAlchemy database models
+│   ├── database.py          # Database connection and session management
+│   ├── config.py            # Application configuration
+│   ├── exceptions.py        # Custom exception classes
+│   ├── middleware.py        # Custom middleware functions
 │   ├── api/
 │   │   ├── __init__.py
-│   │   └── users.py     # User-related API endpoints
+│   │   └── users.py         # User-related API endpoints
+│   ├── auth/
+│   │   ├── __init__.py
+│   │   └── auth.py          # Authentication utilities (JWT, password hashing)
+│   ├── schemas/
+│   │   ├── __init__.py
+│   │   └── user.py          # Pydantic models for request/response validation
+│   ├── services/
+│   │   ├── __init__.py
+│   │   └── user.py          # Business logic and CRUD operations
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   └── logger.py        # Logging utilities
 │   └── tests/
-│       └── __init__.py
-├── requirements.txt     # Python dependencies
-├── .env                 # Environment variables
-├── Dockerfile           # Docker image configuration
-├── docker-compose.yml   # Multi-container setup
+│       ├── __init__.py
+│       └── test_users.py    # Unit tests for user functionality
+├── alembic/                 # Database migration scripts
+├── scripts/
+│   ├── __init__.py
+│   └── init_db.py           # Database initialization script
+├── requirements.txt         # Python dependencies
+├── .env                     # Environment variables
+├── Dockerfile               # Docker image configuration
+├── docker-compose.yml       # Multi-container setup
 └── README.md
 ```
 
