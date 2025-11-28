@@ -1,6 +1,7 @@
 from sqlalchemy.orm import Session
 from app import models
 from app.schemas import user as user_schema
+from app.auth import auth as auth_utils
 from passlib.context import CryptContext
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
@@ -41,3 +42,17 @@ def delete_user(db: Session, user_id: int):
         db.delete(db_user)
         db.commit()
     return db_user
+
+def get_user_by_username(db: Session, username: str):
+    return db.query(models.User).filter(models.User.username == username).first()
+
+def get_user_by_email(db: Session, email: str):
+    return db.query(models.User).filter(models.User.email == email).first()
+
+def authenticate_user(db: Session, username: str, password: str):
+    user = get_user_by_username(db, username=username)
+    if not user:
+        return False
+    if not auth_utils.verify_password(password, user.hashed_password):
+        return False
+    return user

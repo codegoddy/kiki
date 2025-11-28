@@ -44,8 +44,14 @@ A modern REST API built with FastAPI and PostgreSQL for backend development.
 ├── scripts/
 │   ├── __init__.py
 │   └── init_db.py           # Database initialization script
+├── docs/
+│   └── api.md               # API documentation
 ├── requirements.txt         # Python dependencies
+├── pyproject.toml           # Project configuration
+├── Makefile                 # Common commands
 ├── .env                     # Environment variables
+├── .gitignore               # Git ignore rules
+├── .pre-commit-config.yaml  # Pre-commit hooks configuration
 ├── Dockerfile               # Docker image configuration
 ├── docker-compose.yml       # Multi-container setup
 └── README.md
@@ -106,9 +112,26 @@ A modern REST API built with FastAPI and PostgreSQL for backend development.
 
 ## API Endpoints
 
-- `GET /` - Root endpoint
+### Authentication
+
+- `POST /api/v1/auth/register` - Register a new user
+- `POST /api/v1/auth/login` - Login and get access token
+- `GET /api/v1/auth/me` - Get current user info (requires authentication)
+
+### Users
+
 - `GET /api/v1/users/` - List all users
 - `GET /api/v1/users/{user_id}` - Get user by ID
+- `POST /api/v1/users/` - Create a new user
+- `PUT /api/v1/users/{user_id}` - Update user
+- `DELETE /api/v1/users/{user_id}` - Delete user
+
+### General
+
+- `GET /` - Root endpoint
+- `GET /health` - Health check endpoint
+
+For detailed API documentation, see [docs/api.md](docs/api.md).
 
 ## Database
 
