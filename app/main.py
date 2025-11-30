@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.database import engine
 from app.models import Base
-from app.api import users, auth, posts, comments
+from app.api import users, auth, posts, comments, admin
 from app.middleware import log_requests
 
 # Create database tables
@@ -26,6 +26,7 @@ app.include_router(auth.router, prefix="/api/v1/auth", tags=["authentication"])
 app.include_router(users.router, prefix="/api/v1", tags=["users"])
 app.include_router(posts.router, prefix="/api/v1", tags=["posts"])
 app.include_router(comments.router, prefix="/api/v1", tags=["comments"])
+app.include_router(admin.router, prefix="/api/v1/admin", tags=["admin"])
 
 @app.get("/")
 async def root():

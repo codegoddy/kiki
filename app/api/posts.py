@@ -35,3 +35,8 @@ def delete_post(post_id: int, db: Session = Depends(database.get_db)):
     if db_post is None:
         raise HTTPException(status_code=404, detail="Post not found")
     return {"message": "Post deleted successfully"}
+
+@router.get("/posts/search/", response_model=list[post_schema.Post])
+def search_posts(query: str, skip: int = 0, limit: int = 100, db: Session = Depends(database.get_db)):
+    posts = post_service.search_posts(db, query=query, skip=skip, limit=limit)
+    return posts

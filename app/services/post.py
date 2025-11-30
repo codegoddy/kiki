@@ -38,3 +38,8 @@ def delete_post(db: Session, post_id: int):
 
 def get_posts_by_author(db: Session, author_id: int, skip: int = 0, limit: int = 100):
     return db.query(models.Post).filter(models.Post.author_id == author_id).offset(skip).limit(limit).all()
+
+def search_posts(db: Session, query: str, skip: int = 0, limit: int = 100):
+    return db.query(models.Post).filter(
+        (models.Post.title.ilike(f"%{query}%")) | (models.Post.content.ilike(f"%{query}%"))
+    ).offset(skip).limit(limit).all()
