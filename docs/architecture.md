@@ -8,7 +8,7 @@ This document describes the improved architecture of the FastAPI application fol
 
 ### 1. Layered Architecture with Clear Separation
 
-The application now follows a clear layered architecture:
+The application now follows a clear layered architecture
 
 ```
 ┌─────────────────────┐
