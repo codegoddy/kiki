@@ -9,6 +9,13 @@ A modern REST API built with FastAPI and PostgreSQL for backend development.
 - Docker containerization
 - Environment-based configuration
 - Modular API structure
+- **AI-Powered Content Recommendations**
+  - Personalized content recommendations using hybrid collaborative and content-based filtering
+  - Real-time trending content analysis
+  - User preference learning and adaptation
+  - Content similarity detection with AI embeddings
+  - Background tasks for recommendation optimization
+  - Comprehensive recommendation analytics and insights
 
 ## Project Structure
 
@@ -125,6 +132,33 @@ A modern REST API built with FastAPI and PostgreSQL for backend development.
 - `POST /api/v1/users/` - Create a new user
 - `PUT /api/v1/users/{user_id}` - Update user
 - `DELETE /api/v1/users/{user_id}` - Delete user
+
+### AI Recommendations
+
+- `POST /api/v1/recommendations/interactions/log` - Log user interaction for learning
+- `POST /api/v1/recommendations/personalized` - Get personalized content recommendations
+- `POST /api/v1/recommendations/similar` - Find similar content to a post
+- `GET /api/v1/recommendations/trending` - Get trending content
+- `POST /api/v1/recommendations/feedback` - Submit feedback on recommendations
+- `GET /api/v1/recommendations/analytics/{user_id}` - Get recommendation analytics
+- `GET /api/v1/recommendations/preferences/{user_id}` - View user preferences
+- `GET /api/v1/recommendations/explore/{user_id}` - Discover new content
+- `GET /api/v1/recommendations/cold-start/{user_id}` - Recommendations for new users
+- `GET /api/v1/recommendations/health` - Recommendation service health check
+
+### AI Features
+
+- `POST /api/v1/ai/sentiment/analyze` - Analyze sentiment of text
+- `POST /api/v1/ai/content/similar` - Find similar content
+- `POST /api/v1/ai/recommendations/personalized` - Get AI-powered recommendations
+- `POST /api/v1/ai/content/classify` - Classify content into categories
+- `POST /api/v1/ai/user/analyze` - Analyze user preferences
+- `POST /api/v1/ai/content/moderate` - Moderate content for inappropriate material
+- `POST /api/v1/ai/content/batch-analyze` - Batch analyze multiple posts
+- `GET /api/v1/ai/insights/trending-topics` - Get trending topics
+- `POST /api/v1/ai/insights/content-quality` - Analyze content quality
+- `GET /api/v1/ai/insights/audience-sentiment` - Get audience sentiment analysis
+- `POST /api/v1/ai/insights/auto-tag` - Auto-generate content tags
 
 ### General
 

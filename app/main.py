@@ -62,7 +62,7 @@ app.middleware("http")(rate_limit_headers)
 register_exception_handlers(app)
 
 # Include API routers
-from app.api import auth, users, posts, comments, admin, categories, social
+from app.api import auth, users, posts, comments, admin, categories, social, ai, recommendations
 
 app.include_router(
     auth.router, 
@@ -98,6 +98,16 @@ app.include_router(
     social.router, 
     prefix=f"{settings.api.API_V1_STR}/social", 
     tags=["social"]
+)
+app.include_router(
+    ai.router, 
+    prefix=f"{settings.api.API_V1_STR}", 
+    tags=["AI Features"]
+)
+app.include_router(
+    recommendations.router, 
+    prefix=f"{settings.api.API_V1_STR}", 
+    tags=["Recommendations"]
 )
 
 @app.get("/")
@@ -176,7 +186,12 @@ async def startup_event():
                 "security_headers": True,
                 "request_logging": True,
                 "exception_handlers": True,
-                "rate_limiting": True
+                "rate_limiting": True,
+                "ai_recommendations": True,
+                "personalized_content": True,
+                "trending_analysis": True,
+                "collaborative_filtering": True,
+                "content_based_filtering": True
             }
         }
     )
