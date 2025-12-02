@@ -10,6 +10,7 @@ from .user import User
 from .post import Post
 from .comment import Comment
 from .category import Category
+from .social import Follow, Notification, NotificationType
 
 # Make association table available at package level
 post_category_association = post_category_association
@@ -21,5 +22,8 @@ __all__ = [
     "User",
     "Post", 
     "Comment",
-    "Category"
+    "Category",
+    "Follow",
+    "Notification",
+    "NotificationType"
 ]

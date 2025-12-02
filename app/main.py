@@ -62,7 +62,7 @@ app.middleware("http")(rate_limit_headers)
 register_exception_handlers(app)
 
 # Include API routers
-from app.api import auth, users, posts, comments, admin, categories
+from app.api import auth, users, posts, comments, admin, categories, social
 
 app.include_router(
     auth.router, 
@@ -93,6 +93,11 @@ app.include_router(
     admin.router, 
     prefix=f"{settings.api.API_V1_STR}/admin", 
     tags=["admin"]
+)
+app.include_router(
+    social.router, 
+    prefix=f"{settings.api.API_V1_STR}/social", 
+    tags=["social"]
 )
 
 @app.get("/")
